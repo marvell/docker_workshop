@@ -13,7 +13,7 @@ docker version
 
 ```bash
 brew cask install virtualbox vagrant
-git clone https://github.com/marvell/docker_workshop
+git clone https://github.com/marvell/docker_workshop.git
 cd docker_workshop
 vagrant up
 
@@ -26,7 +26,7 @@ docker version
 Скачать и установить [VirtualBox](https://www.virtualbox.org/wiki/Downloads), [Vagrant](https://www.vagrantup.com/downloads.html) и Docker Client ([x32](https://master.dockerproject.com/windows/386/docker.exe), [x64](https://master.dockerproject.com/windows/amd64/docker.exe)).
 
 ```bash
-git clone https://github.com/marvell/docker_workshop
+git clone https://github.com/marvell/docker_workshop.git
 cd docker_workshop
 vagrant up
 docker version
