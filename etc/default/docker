@@ -1,0 +1,4 @@
+# Docker Upstart and SysVinit configuration file
+
+# Use DOCKER_OPTS to modify the daemon startup options.
+DOCKER_OPTS="--host=tcp://0.0.0.0:2375 --host=unix:///var/run/docker.sock --insecure-registry=0.0.0.0/0"
