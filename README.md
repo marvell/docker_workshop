@@ -37,7 +37,36 @@ vagrant up
 docker version
 ```
 
+## Разработка из-под Docker
+
+Запуск контейнера с пробросом текущей папки: `docker run -it -v $(pwd):/app rails:4.2 /bin/bash`.
+
+## Основы Dockerfile
+
+- .dockerignore
+- FROM
+- MAINTAINER
+- RUN
+- CMD
+- EXPOSE
+- ENV
+- ADD
+- COPY
+- ENTRYPOINT
+- VOLUME
+- USER
+- WORKDIR
+- ONBUILD
+
+
 ## Tips
 
-Получить IP-адрес запущенного контейнра: 
+Получить IP-адрес запущенного контейнра:
 `docker inspect -f '{{ .NetworkSettings.IPAddress }}' <container_name>`
+
+Запуск сопутствующих контейнеров в одной сети с приложением:
+`docker run --net=container:myapp redis`
+
+Для запуска более одного процесса в конетйнеры использовать [этот образ](https://github.com/phusion/baseimage-docker).
+
+Больше [здесь](https://github.com/wsargent/docker-cheat-sheet).
