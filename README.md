@@ -9,7 +9,7 @@ curl -sSL https://get.docker.com/ubuntu/ | sudo sh
 docker version
 ```
 
-Добавим роутинг до контейнеров с хост машины: `sudo route add -net 172.17.0.0/24 gw 10.0.2.1`
+Добавим роутинг до контейнеров с хост машины: `sudo route add -net 172.17.0.0/24 gw 172.17.0.1`
 
 ### OS X
 
@@ -64,9 +64,11 @@ docker version
 Получить IP-адрес запущенного контейнра:
 `docker inspect -f '{{ .NetworkSettings.IPAddress }}' <container_name>`
 
-Запуск сопутствующих контейнеров в одной сети с приложением:
-`docker run --net=container:myapp redis`
+Запуск сопутствующих контейнеров в одной сети с приложением `myapp`:
+`docker run --net=container:myapp <container_name>`
 
-Для запуска более одного процесса в конетйнеры использовать [этот образ](https://github.com/phusion/baseimage-docker).
+Для запуска более одного процесса в конетейнере использовать [этот образ](https://github.com/phusion/baseimage-docker).
+
+Удаление "осеротевших" образов: `docker images -q --filter "dangling=true" | xargs docker rmi`
 
 Больше [здесь](https://github.com/wsargent/docker-cheat-sheet).
