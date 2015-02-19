@@ -9,6 +9,8 @@ curl -sSL https://get.docker.com/ubuntu/ | sudo sh
 docker version
 ```
 
+Добавим роутинг до контейнеров с хост машины: `sudo route add -net 172.17.0.0/24 gw 10.0.2.1`
+
 ### OS X
 
 ```bash
@@ -18,8 +20,11 @@ cd docker_workshop
 vagrant up
 
 brew install docker
-docker version
 ```
+
+Добавьте в `.bashrc` или подобный файл: `export DOCKER_HOST=tcp://10.0.0.2:2375`.
+
+Добавим роутинг до контейнеров с хост машины: `sudo route add 172.17.0.0/24 10.0.0.2`.
 
 ### Windows
 
@@ -31,3 +36,8 @@ cd docker_workshop
 vagrant up
 docker version
 ```
+
+## Tips
+
+Получить IP-адрес запущенного контейнра: 
+`docker inspect -f '{{ .NetworkSettings.IPAddress }}' <container_name>`
